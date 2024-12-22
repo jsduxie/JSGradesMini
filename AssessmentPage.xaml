@@ -6,8 +6,8 @@
              x:Class="JSGradesMini.AssessmentPage"
              Title="Assessment Details">
     <ScrollView>
-        <VerticalStackLayout Padding="10" VerticalOptions="FillAndExpand">
-            <Label Text="Editing Assessment" FontSize="24" FontFamily="RobotoBold" FontAttributes="Bold" HorizontalOptions="Center" VerticalOptions="Center" Margin="0,20" />
+        <VerticalStackLayout Padding="10" VerticalOptions="FillAndExpand" BackgroundColor="#1E2126">
+            <Label Text="Editing Assessment" FontSize="32" FontFamily="RobotoBold" FontAttributes="Bold" HorizontalOptions="Center" VerticalOptions="Center" Margin="0,20" />
 
             <Grid Padding="10" BackgroundColor="#292C33">
                 <Grid.RowDefinitions>
@@ -23,7 +23,7 @@
                     <ColumnDefinition Width=".8*" />
                 </Grid.ColumnDefinitions>
 
-                <Label Grid.Row="0" Grid.Column="0" Text="Assessment Type:" FontSize="20" FontFamily="Bold"  VerticalOptions="Center" HorizontalTextAlignment="Center" Margin="0,5"/>
+                <Label Grid.Row="0" Grid.Column="0" Text="Assessment Type:" FontSize="20" FontFamily="RobotoBold" FontAttributes="Bold" VerticalOptions="Center" HorizontalTextAlignment="Center" Margin="0,5"/>
                 <Entry Grid.Row="0" Grid.Column="1" Text="{Binding AssessmentType}" FontSize="20" FontFamily="RobotoRegular" VerticalOptions="Center" Margin="0,10">
                 </Entry>
 

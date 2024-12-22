@@ -5,9 +5,15 @@
              xmlns:behaviors="clr-namespace:JSGradesMini.Behaviors"
              x:Class="JSGradesMini.ModulePage"
              Title="Module Details">
-    <ScrollView>
-        <VerticalStackLayout Padding="10" VerticalOptions="FillAndExpand">
-            <Label Text="Editing Module" FontSize="24" FontFamily="RobotoBold" FontAttributes="Bold" HorizontalOptions="Center" VerticalOptions="Center" Margin="0,20" />
+    <Grid BackgroundColor="#1E2126">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <VerticalStackLayout Padding="10" Grid.Row="0">
+            <Label Text="Editing Module" FontSize="32" FontFamily="RobotoBold" FontAttributes="Bold" HorizontalOptions="Center" VerticalOptions="Center" Margin="0,20" />
 
             <Grid Padding="10" BackgroundColor="#292C33">
                 <Grid.RowDefinitions>
@@ -24,7 +30,7 @@
                     <ColumnDefinition Width=".8*" />
                 </Grid.ColumnDefinitions>
 
-                <Label Grid.Row="0" Grid.Column="0" Text="Module Code" FontSize="20" FontFamily="Bold"  VerticalOptions="Center" HorizontalTextAlignment="Center" Margin="0,5"/>
+                <Label Grid.Row="0" Grid.Column="0" Text="Module Code" FontSize="20" FontFamily="RobotoBold" FontAttributes="Bold" VerticalOptions="Center" HorizontalTextAlignment="Center" Margin="0,5"/>
                 <Entry Grid.Row="0" Grid.Column="1" Text="{Binding ModuleCode}" FontSize="20" FontFamily="RobotoRegular" VerticalOptions="Center" Margin="0,10">
                 </Entry>
 
@@ -46,50 +52,49 @@
                 <Label Grid.Row="6" Grid.Column="0" Text="Is Complete:" FontSize="20" FontFamily="RobotoBold" FontAttributes="Bold"  VerticalOptions="Center" HorizontalTextAlignment="Center" Margin="0,5"/>
                 <CheckBox Grid.Row="6" Grid.Column="1" IsChecked="{Binding IsComplete}" VerticalOptions="Center" Margin="0,10" HorizontalOptions="Start"/>
             </Grid>
-
-            <!-- Assessments CollectionView -->
-            <CollectionView x:Name="assessmentCollectionView" SelectionMode="Single" BackgroundColor="#1E2126"  Margin="0,10" EmptyView="There are no assessments yet!" SelectionChanged="OnAssessmentSelected" VerticalOptions="FillAndExpand">
-                <CollectionView.ItemsLayout>
-                    <LinearItemsLayout Orientation="Vertical" ItemSpacing="20"  />
-                </CollectionView.ItemsLayout>
-                <CollectionView.Header>
-                    <VerticalStackLayout Padding="10" HorizontalOptions="Center" Margin="0,20">
-                        <Label Text="Assessments" FontSize="32" FontFamily="RobotoBold" FontAttributes="Bold" HorizontalOptions="Center"/>
-                        <Button Text="Add Assessment" TextColor="White" FontSize="20" FontFamily="RobotoBold" FontAttributes="Bold" CornerRadius="10" Margin="0,10" HorizontalOptions="Center" Clicked="OnAddAssessmentClicked"/>
-                    </VerticalStackLayout>
-                </CollectionView.Header>
-                <CollectionView.ItemTemplate>
-                    <DataTemplate>
-                        <Frame Margin="10,10" BackgroundColor="#292C33" CornerRadius="10" HorizontalOptions="Center" >
-                            <Grid VerticalOptions="Center" Padding="0,10">
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height=".5*" />
-                                    <RowDefinition Height=".5*" />
-                                </Grid.RowDefinitions>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width=".2*" />
-                                    <ColumnDefinition Width=".2*" />
-                                    <ColumnDefinition Width=".2*" />
-                                    <ColumnDefinition Width=".2*" />
-                                    <ColumnDefinition Width=".2*" />
-                                </Grid.ColumnDefinitions>
-
-                                <Label Grid.Row="0" Grid.Column="0" Text="Assessment Type" FontSize="15" FontFamily="RobotoBold" FontAttributes="Bold" TextColor="Gray" VerticalOptions="Center" Margin="0,0,0,5" HorizontalTextAlignment="Center" />
-                                <Label Grid.Row="0" Grid.Column="1" Text="Assessment Name" FontSize="15" FontFamily="RobotoBold" FontAttributes="Bold" TextColor="Gray" VerticalOptions="Center" Margin="0,0,0,5" HorizontalTextAlignment="Center" />
-                                <Label Grid.Row="0" Grid.Column="2" Text="Due Date" FontSize="15" FontFamily="RobotoBold" FontAttributes="Bold" TextColor="Gray" VerticalOptions="Center" Margin="0,0,0,5" HorizontalTextAlignment="Center" />
-                                <Label Grid.Row="0" Grid.Column="3" Text="Weighting" FontSize="15" FontFamily="RobotoBold" FontAttributes="Bold" TextColor="Gray" VerticalOptions="Center" Margin="0,0,0,5" HorizontalTextAlignment="Center" />
-                                <Label Grid.Row="0" Grid.Column="4" Text="Grade" FontSize="15"  FontFamily="RobotoBold" FontAttributes="Bold" TextColor="Gray" VerticalOptions="Center" Margin="0,0,0,5" HorizontalTextAlignment="Center"/>
-
-                                <Label Grid.Row="1" Grid.Column="0" Text="{Binding AssessmentType}" FontSize="20" FontFamily="RobotoRegular"  VerticalOptions="Center" Margin="0,5,0,0" HorizontalTextAlignment="Center"/>
-                                <Label Grid.Row="1" Grid.Column="1" Text="{Binding AssessmentName}" FontSize="20" FontFamily="RobotoRegular" VerticalOptions="Center" Margin="0,5,0,0" HorizontalTextAlignment="Center"/>
-                                <Label Grid.Row="1" Grid.Column="2" Text="{Binding DueDate}" FontSize="20" FontFamily="RobotoRegular" VerticalOptions="Center" Margin="0,5,0,0" HorizontalTextAlignment="Center"/>
-                                <Label Grid.Row="1" Grid.Column="3" Text="{Binding Weighting}" FontSize="20" FontFamily="RobotoRegular" VerticalOptions="Center" Margin="0,5,0,0" HorizontalTextAlignment="Center"/>
-                                <Label Grid.Row="1" Grid.Column="4" Text="{Binding Grade, StringFormat='{0}%'}" FontSize="25"  FontFamily="RobotoRegular" VerticalOptions="Center" Margin="0,5,0,0" HorizontalTextAlignment="Center"/>
-                            </Grid>
-                        </Frame>
-                    </DataTemplate>
-                </CollectionView.ItemTemplate>
-            </CollectionView>
         </VerticalStackLayout>
-    </ScrollView>
+
+        <VerticalStackLayout Padding="10" HorizontalOptions="Center" Margin="0,20" Grid.Row="1">
+            <Label Text="Assessments" FontSize="32" FontFamily="RobotoBold" FontAttributes="Bold" HorizontalOptions="Center"/>
+            <Button Text="Add Assessment" TextColor="White" FontSize="20" FontFamily="RobotoBold" FontAttributes="Bold" CornerRadius="10" Margin="0,10" HorizontalOptions="Center" Clicked="OnAddAssessmentClicked"/>
+        </VerticalStackLayout>
+
+        <!-- Assessments CollectionView -->
+        <CollectionView x:Name="assessmentCollectionView" SelectionMode="Single" BackgroundColor="#1E2126"  Margin="0,10" EmptyView="There are no assessments yet!" SelectionChanged="OnAssessmentSelected" Grid.Row="2">
+            <CollectionView.ItemsLayout>
+                <LinearItemsLayout Orientation="Vertical" ItemSpacing="20"  />
+            </CollectionView.ItemsLayout>
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Frame Margin="10,10" BackgroundColor="#292C33" CornerRadius="10" HorizontalOptions="Center" >
+                        <Grid VerticalOptions="Center" Padding="0,10">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height=".5*" />
+                                <RowDefinition Height=".5*" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width=".2*" />
+                                <ColumnDefinition Width=".2*" />
+                                <ColumnDefinition Width=".2*" />
+                                <ColumnDefinition Width=".2*" />
+                                <ColumnDefinition Width=".2*" />
+                            </Grid.ColumnDefinitions>
+
+                            <Label Grid.Row="0" Grid.Column="0" Text="Assessment Type" FontSize="15" FontFamily="RobotoBold" FontAttributes="Bold" TextColor="Gray" VerticalOptions="Center" Margin="0,0,0,5" HorizontalTextAlignment="Center" />
+                            <Label Grid.Row="0" Grid.Column="1" Text="Assessment Name" FontSize="15" FontFamily="RobotoBold" FontAttributes="Bold" TextColor="Gray" VerticalOptions="Center" Margin="0,0,0,5" HorizontalTextAlignment="Center" />
+                            <Label Grid.Row="0" Grid.Column="2" Text="Due Date" FontSize="15" FontFamily="RobotoBold" FontAttributes="Bold" TextColor="Gray" VerticalOptions="Center" Margin="0,0,0,5" HorizontalTextAlignment="Center" />
+                            <Label Grid.Row="0" Grid.Column="3" Text="Weighting" FontSize="15" FontFamily="RobotoBold" FontAttributes="Bold" TextColor="Gray" VerticalOptions="Center" Margin="0,0,0,5" HorizontalTextAlignment="Center" />
+                            <Label Grid.Row="0" Grid.Column="4" Text="Grade" FontSize="15"  FontFamily="RobotoBold" FontAttributes="Bold" TextColor="Gray" VerticalOptions="Center" Margin="0,0,0,5" HorizontalTextAlignment="Center"/>
+
+                            <Label Grid.Row="1" Grid.Column="0" Text="{Binding AssessmentType}" FontSize="20" FontFamily="RobotoRegular"  VerticalOptions="Center" Margin="0,5,0,0" HorizontalTextAlignment="Center"/>
+                            <Label Grid.Row="1" Grid.Column="1" Text="{Binding AssessmentName}" FontSize="20" FontFamily="RobotoRegular" VerticalOptions="Center" Margin="0,5,0,0" HorizontalTextAlignment="Center"/>
+                            <Label Grid.Row="1" Grid.Column="2" Text="{Binding DueDate}" FontSize="20" FontFamily="RobotoRegular" VerticalOptions="Center" Margin="0,5,0,0" HorizontalTextAlignment="Center"/>
+                            <Label Grid.Row="1" Grid.Column="3" Text="{Binding Weighting}" FontSize="20" FontFamily="RobotoRegular" VerticalOptions="Center" Margin="0,5,0,0" HorizontalTextAlignment="Center"/>
+                            <Label Grid.Row="1" Grid.Column="4" Text="{Binding Grade, StringFormat='{0}%'}" FontSize="25"  FontFamily="RobotoRegular" VerticalOptions="Center" Margin="0,5,0,0" HorizontalTextAlignment="Center"/>
+                        </Grid>
+                    </Frame>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </Grid>
 </ContentPage>
