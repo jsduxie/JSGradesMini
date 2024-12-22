@@ -1,0 +1,1 @@
+-v --force --timestamp=none --sign - --entitlements /Users/jamesduxbury/Documents/GitHub/personal-projects/js-grades-mini/JSGradesMini/obj/Debug/net8.0-maccatalyst/maccatalyst-arm64/Entitlements.xcent /Users/jamesduxbury/Documents/GitHub/personal-projects/js-grades-mini/JSGradesMini/bin/Debug/net8.0-maccatalyst/maccatalyst-arm64/JSGradesMini.app

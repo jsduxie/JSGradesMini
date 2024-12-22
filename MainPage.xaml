@@ -1,0 +1,67 @@
+﻿<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="JSGradesMini.MainPage"
+             BindingContext="{Binding Source={x:Reference Page}, Path=BindingContext}">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="10">
+            <Label Text="Subjects" FontSize="24" FontAttributes="Bold" Padding="0,0,0,10"/>
+            <CollectionView ItemsSource="{Binding Subjects}" SelectionMode="None">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame CornerRadius="10" Padding="50" BackgroundColor="#FF2C2C2C" Margin="25">
+                            <VerticalStackLayout>
+                                <Grid Padding="0,0,0,10">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="Auto" />
+                                    </Grid.ColumnDefinitions>
+                                    <Label Text="{Binding Name}" FontSize="20" FontAttributes="Bold" Grid.Column="0" />
+                                    <Button Text="Expand" FontSize="12" Grid.Column="1" Command="{Binding ToggleExpandCommand}" />
+                                </Grid>
+
+                                <Label Text="Completion: " FontSize="16">
+                                    <Label.FormattedText>
+                                        <FormattedString>
+                                            <Span Text="{Binding Percentage}" />
+                                            <Span Text="%" />
+                                        </FormattedString>
+                                    </Label.FormattedText>
+                                </Label>
+
+                                <!-- CollectionView for Assessments -->
+                                <CollectionView ItemsSource="{Binding Assessments}">
+                                    <CollectionView.Triggers>
+                                        <DataTrigger TargetType="CollectionView" Binding="{Binding IsExpanded}" Value="True">
+                                            <DataTrigger.Setters>
+                                                <Setter Property="IsVisible" Value="True" />
+                                            </DataTrigger.Setters>
+                                        </DataTrigger>
+                                        <DataTrigger TargetType="CollectionView" Binding="{Binding IsExpanded}" Value="False">
+                                            <DataTrigger.Setters>
+                                                <Setter Property="IsVisible" Value="False" />
+                                            </DataTrigger.Setters>
+                                        </DataTrigger>
+                                    </CollectionView.Triggers>
+
+                                    <CollectionView.ItemTemplate>
+                                        <DataTemplate>
+                                            <Frame CornerRadius="10" Padding="10" BackgroundColor="LightBlue" Margin="5">
+                                                <VerticalStackLayout>
+                                                    <Label Text="{Binding Title}" FontSize="18" FontAttributes="Bold" />
+                                                    <Label Text="{Binding DueDate, StringFormat='Due: {0:dd MMM yyyy}'}" FontSize="16" TextColor="Gray" />
+                                                    <Label Text="{Binding Weight, StringFormat='Weight: {0}%'}" FontSize="16" TextColor="DarkBlue" />
+                                                </VerticalStackLayout>
+                                            </Frame>
+                                        </DataTemplate>
+                                    </CollectionView.ItemTemplate>
+                                </CollectionView>
+                            </VerticalStackLayout>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>
