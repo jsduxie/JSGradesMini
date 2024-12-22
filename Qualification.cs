@@ -1,21 +1,35 @@
 using System;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
+using System.Runtime.CompilerServices;
 
 namespace JSGradesMini;
 
 // Currently targeting degrees similar to mine
 
 // Overall Qualification
-public class Qualification
+public class Qualification : INotifyPropertyChanged
 {
-    public QualificationType QualificationType { get; set; } = QualificationType.BachelorsDegree;
-    public string Institution { get; set; } = string.Empty;
-    public DateTime StartDate {get; set;} = DateTime.Now;
-    public DateTime EndDate {get; set;} = DateTime.Now;
-    public bool IsComplete {get; set;} = false;
-    public float NumLevels {get; set;} = 0;
-    public float CurrentLevel {get; set;} = 0;
-    public float OverallGrade {get; set;} = 0.0f;
+    private QualificationType _qualificationType;
+    private string _institution;
+    private string _courseName;
+    private DateTime _startDate;
+    private DateTime _endDate;
+    private bool _isComplete;
+    private float _numLevels;
+    private float _currentLevel;
+    private float _overallGrade;
+    private string _classification;
+    
+    public QualificationType QualificationType { get => _qualificationType; set => SetProperty(ref _qualificationType, value);}
+    public string Institution { get => _institution; set => SetProperty(ref _institution, value);}
+    public string CourseName { get => _courseName; set => SetProperty(ref _courseName, value);}
+    public DateTime StartDate {get => _startDate; set => SetProperty(ref _startDate, value);}
+    public DateTime EndDate {get => _endDate; set => SetProperty(ref _endDate, value);}
+    public bool IsComplete {get => _isComplete; set => SetProperty(ref _isComplete, value);}
+    public float NumLevels {get => _numLevels; set => SetProperty(ref _numLevels, value);}
+    public float CurrentLevel {get => _currentLevel; set => SetProperty(ref _currentLevel, value);}
+    public float OverallGrade {get => _overallGrade; set => SetProperty(ref _overallGrade, value);}
     public string Classification
     {
         get
@@ -44,6 +58,23 @@ public class Qualification
     }
 
     public ObservableCollection<Level> Levels {get; set;} = new ObservableCollection<Level>();
+
+    public event PropertyChangedEventHandler PropertyChanged;
+
+    protected bool SetProperty<T>(ref T backingStore, T value, [CallerMemberName] string propertyName = "")
+    {
+        if (EqualityComparer<T>.Default.Equals(backingStore, value))
+            return false;
+        
+        backingStore = value;
+        OnPropertyChanged(propertyName);
+        return true;
+    }
+
+    protected void OnPropertyChanged([CallerMemberName] string propertyName = "")
+    {
+        PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+    }
 
     public void CalculateOverallGrade()
     {
@@ -122,6 +153,10 @@ public enum AssessmentType
 
 public enum QualificationType
 {
-    MastersDegree,
-    BachelorsDegree
+    MEng,
+    MSc,
+    MA,
+    BSc,
+    BA,
+    LLB
 }

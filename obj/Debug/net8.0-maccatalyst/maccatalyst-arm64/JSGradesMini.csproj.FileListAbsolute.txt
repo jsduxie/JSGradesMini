@@ -311,7 +311,10 @@
 /Users/jamesduxbury/Documents/GitHub/personal-projects/js-grades-mini/JSGradesMini/obj/Debug/net8.0-maccatalyst/maccatalyst-arm64/resizetizer/f/Roboto-Regular.ttf
 /Users/jamesduxbury/Documents/GitHub/personal-projects/js-grades-mini/JSGradesMini/obj/Debug/net8.0-maccatalyst/maccatalyst-arm64/resizetizer/f/Roboto-Thin.ttf
 /Users/jamesduxbury/Documents/GitHub/personal-projects/js-grades-mini/JSGradesMini/obj/Debug/net8.0-maccatalyst/maccatalyst-arm64/resizetizer/f/Roboto-ThinItalic.ttf
+/Users/jamesduxbury/Documents/GitHub/personal-projects/js-grades-mini/JSGradesMini/obj/Debug/net8.0-maccatalyst/maccatalyst-arm64/JSGradesMini.sourcelink.json
 /Users/jamesduxbury/Documents/GitHub/personal-projects/js-grades-mini/JSGradesMini/bin/Debug/net8.0-maccatalyst/maccatalyst-arm64/Microsoft.Maui.Controls.HotReload.Forms.dll
 /Users/jamesduxbury/Documents/GitHub/personal-projects/js-grades-mini/JSGradesMini/bin/Debug/net8.0-maccatalyst/maccatalyst-arm64/Microsoft.VisualStudio.DesignTools.MobileTapContracts.dll
 /Users/jamesduxbury/Documents/GitHub/personal-projects/js-grades-mini/JSGradesMini/bin/Debug/net8.0-maccatalyst/maccatalyst-arm64/Microsoft.VisualStudio.DesignTools.TapContract.dll
-/Users/jamesduxbury/Documents/GitHub/personal-projects/js-grades-mini/JSGradesMini/obj/Debug/net8.0-maccatalyst/maccatalyst-arm64/JSGradesMini.sourcelink.json
+/Users/jamesduxbury/Documents/GitHub/personal-projects/js-grades-mini/JSGradesMini/obj/Debug/net8.0-maccatalyst/maccatalyst-arm64/resourcestamps/Microsoft.Maui.Controls.HotReload.Forms.stamp
+/Users/jamesduxbury/Documents/GitHub/personal-projects/js-grades-mini/JSGradesMini/obj/Debug/net8.0-maccatalyst/maccatalyst-arm64/resourcestamps/Microsoft.VisualStudio.DesignTools.MobileTapContracts.stamp
+/Users/jamesduxbury/Documents/GitHub/personal-projects/js-grades-mini/JSGradesMini/obj/Debug/net8.0-maccatalyst/maccatalyst-arm64/resourcestamps/Microsoft.VisualStudio.DesignTools.TapContract.stamp

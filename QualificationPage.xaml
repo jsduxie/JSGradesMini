@@ -1,36 +1,89 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:JSGradesMini"
+             xmlns:converters="clr-namespace:JSGradesMini.Converters"
              x:Class="JSGradesMini.QualificationPage"
              Title="Qualification Details">
-    <CollectionView x:Name="levelCollectionView" SelectionMode="Single" ItemsLayout="VerticalList" BackgroundColor="#1E2126">
-        <CollectionView.ItemsLayout>
-            <LinearItemsLayout Orientation="Vertical" ItemSpacing="20" />
-        </CollectionView.ItemsLayout>
+    <ScrollView>
+        <VerticalStackLayout Padding="10" VerticalOptions="FillAndExpand">
+            <Label Text="Editing Qualification" FontSize="24" FontFamily="RobotoBold" FontAttributes="Bold" HorizontalOptions="Center" VerticalOptions="Center" />
 
-        <CollectionView.Header>
-            <VerticalStackLayout Padding="10" HorizontalOptions="Center" Margin="0,20">
-                <Label Text="{Binding Institution}" FontSize="32" FontFamily="RobotoBold" FontAttributes="Bold" HorizontalOptions="Center"/>
-                <Label Text="{Binding QualificationType}" FontSize="20" FontFamily="RobotoBold" FontAttributes="Bold" HorizontalOptions="Center"/>
-            </VerticalStackLayout>
-        </CollectionView.Header>
+            <Label FontSize="20" FontFamily="RobotoRegular" HorizontalOptions="Center" VerticalOptions="Center">
+                <Label.Text>
+                    <MultiBinding StringFormat="{}{0} - {1}">
+                        <Binding Path="Institution" />
+                        <Binding Path="QualificationType" Converter="{StaticResource EnumToStringConverter}" />
+                    </MultiBinding>
+                </Label.Text>
+            </Label>
 
-        <CollectionView.ItemTemplate>
-            <DataTemplate>
-                <Frame Margin="10,10" BackgroundColor="#292C33" CornerRadius="10" HorizontalOptions="Center" >
-                    <Grid VerticalOptions="Center">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width=".2*" />
-                            <ColumnDefinition Width=".6*" />
-                            <ColumnDefinition Width=".2*" />
-                        </Grid.ColumnDefinitions>
+            <Grid Padding="10" BackgroundColor="#292C33">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width=".2*" />
+                    <ColumnDefinition Width=".8*" />
+                </Grid.ColumnDefinitions>
 
-                        <Label Grid.Column="0" Text="{Binding LevelInt}" FontSize="20" FontFamily="RobotoBold" FontAttributes="Bold" TextColor="Red"/>
-                        <Label Grid.Column="1" Text="{Binding Grade, StringFormat='{0}%'}" FontSize="20" FontFamily="RobotoBold" FontAttributes="Bold" />
-                        <Label Grid.Column="2" Text="{Binding Weighting, StringFormat='{0}%'}" FontSize="25"  FontFamily="RobotoBold" FontAttributes="Bold" />
-                    </Grid>
-                </Frame>
-            </DataTemplate>
-        </CollectionView.ItemTemplate>
-    </CollectionView>
+                <Label Grid.Row="0" Grid.Column="0" Text="Qualification Type:" FontSize="20" FontFamily="Bold"  VerticalOptions="Center" HorizontalTextAlignment="Center" Margin="0,5"/>
+                <Picker Grid.Row="0" Grid.Column="1" ItemsSource="{x:Static local:QualificationTypeExtensions.Values}" SelectedItem="{Binding QualificationType, Converter={StaticResource EnumToStringConverter}}" FontSize="20" FontFamily="RobotoRegular" VerticalOptions="Center" Margin="0,10"/>
+
+                <Label Grid.Row="1" Grid.Column="0" Text="Institution:" FontSize="20" FontFamily="RobotoBold" FontAttributes="Bold"  VerticalOptions="Center" HorizontalTextAlignment="Center" Margin="0,5"/>
+                <Entry Grid.Row="1" Grid.Column="1" Text="{Binding Institution}" FontSize="20" FontFamily="RobotoRegular" VerticalOptions="Center" Margin="0,10"/>
+
+                <Label Grid.Row="2" Grid.Column="0" Text="Course Name:" FontSize="20" FontFamily="RobotoBold" FontAttributes="Bold"  VerticalOptions="Center" HorizontalTextAlignment="Center" Margin="0,5"/>
+                <Entry Grid.Row="2" Grid.Column="1" Text="{Binding CourseName}" FontSize="20" FontFamily="RobotoRegular" VerticalOptions="Center" Margin="0,10"/>
+
+                <Label Grid.Row="3" Grid.Column="0" Text="Start Date:" FontSize="20" FontFamily="RobotoBold" FontAttributes="Bold"  VerticalOptions="Center" HorizontalTextAlignment="Center" Margin="0,5"/>
+                <DatePicker Grid.Row="3" Grid.Column="1" Date="{Binding StartDate}" FontSize="20" FontFamily="RobotoRegular" VerticalOptions="Center" Margin="0,10"/>
+
+                <Label Grid.Row="4" Grid.Column="0" Text="End Date:" FontSize="20" FontFamily="RobotoBold" FontAttributes="Bold"  VerticalOptions="Center" HorizontalTextAlignment="Center" Margin="0,5"/>
+                <DatePicker Grid.Row="4" Grid.Column="1" Date="{Binding EndDate}" FontSize="20" FontFamily="RobotoRegular" VerticalOptions="Center" Margin="0,10"/>
+
+                <Label Grid.Row="5" Grid.Column="0" Text="Overall Grade:" FontSize="20" FontFamily="RobotoBold" FontAttributes="Bold" VerticalOptions="Center" HorizontalTextAlignment="Center" Margin="0,5"/>
+                <Entry Grid.Row="5" Grid.Column="1" Text="{Binding OverallGrade}" FontSize="20" FontFamily="RobotoRegular" VerticalOptions="Center" Margin="0,10"/>
+
+                <Label Grid.Row="6" Grid.Column="0" Text="Is Complete:" FontSize="20" FontFamily="RobotoBold" FontAttributes="Bold"  VerticalOptions="Center" HorizontalTextAlignment="Center" Margin="0,5"/>
+                <CheckBox Grid.Row="6" Grid.Column="1" IsChecked="{Binding IsComplete}" VerticalOptions="Center" Margin="0,10" HorizontalOptions="Start"/>
+            </Grid>
+
+            <!-- Levels CollectionView -->
+            <CollectionView x:Name="levelCollectionView" SelectionMode="Single" ItemsLayout="VerticalList" BackgroundColor="#1E2126" VerticalOptions="FillAndExpand" Margin="0,10">
+                <CollectionView.ItemsLayout>
+                    <LinearItemsLayout Orientation="Vertical" ItemSpacing="20" />
+                </CollectionView.ItemsLayout>
+                <CollectionView.Header>
+                    <VerticalStackLayout Padding="10" HorizontalOptions="Center" Margin="0,20">
+                        <Label Text="{Binding Institution}" FontSize="32" FontFamily="RobotoBold" FontAttributes="Bold" HorizontalOptions="Center"/>
+                        <Label Text="{Binding QualificationType}" FontSize="20" FontFamily="RobotoBold" FontAttributes="Bold" HorizontalOptions="Center"/>
+                    </VerticalStackLayout>
+                </CollectionView.Header>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame Margin="10,10" BackgroundColor="#292C33" CornerRadius="10" HorizontalOptions="Center">
+                            <Grid VerticalOptions="Center">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width=".2*" />
+                                    <ColumnDefinition Width=".6*" />
+                                    <ColumnDefinition Width=".2*" />
+                                </Grid.ColumnDefinitions>
+
+                                <Label Grid.Column="0" Text="{Binding LevelInt}" FontSize="20" FontFamily="RobotoBold" FontAttributes="Bold" TextColor="Red"/>
+                                <Label Grid.Column="1" Text="{Binding Grade, StringFormat='{0}%'}" FontSize="20" FontFamily="RobotoBold" FontAttributes="Bold" />
+                                <Label Grid.Column="2" Text="{Binding Weighting, StringFormat='{0}%'}" FontSize="25" FontFamily="RobotoBold" FontAttributes="Bold" />
+                            </Grid>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </VerticalStackLayout>
+    </ScrollView>
 </ContentPage>

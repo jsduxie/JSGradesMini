@@ -24,8 +24,9 @@ public partial class QualDashboardPage : ContentPage
 		{
 			new Qualification
 			{
-				QualificationType = QualificationType.MastersDegree,
+				QualificationType = QualificationType.MEng,
 				Institution = "Durham University",
+				CourseName = "Computer Science",
 				OverallGrade = 71f,
 				StartDate = new DateTime(2022, 10, 1),
 				EndDate = new DateTime(2026, 7, 1),
