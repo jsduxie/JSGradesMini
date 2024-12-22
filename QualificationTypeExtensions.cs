@@ -8,4 +8,9 @@ namespace JSGradesMini
     {
         public static List<string> Values => Enum.GetNames(typeof(QualificationType)).ToList();
     }
+
+    public static class AssessmentTypeExtensions
+    {
+        public static List<string> Values => Enum.GetNames(typeof(AssessmentType)).ToList();
+    }
 }

@@ -9,6 +9,7 @@ public partial class LevelPage : ContentPage
 		InitializeComponent();
 		_level = level;
 		_saveQualifications = saveQualifications;
+		_level.CalculateLevelGrade();
 		BindingContext = _level;
 		moduleCollectionView.ItemsSource = _level.Modules;
 	}
@@ -16,7 +17,7 @@ public partial class LevelPage : ContentPage
 	protected override void OnAppearing()
     {
         base.OnAppearing();
-
+		_level.CalculateLevelGrade();
 		moduleCollectionView.ItemsSource = null;
 		moduleCollectionView.ItemsSource = _level.Modules;
     }
@@ -24,7 +25,9 @@ public partial class LevelPage : ContentPage
     protected override void OnDisappearing()
     {
         base.OnDisappearing();
+		_level.CalculateLevelGrade();
 		_saveQualifications();
+
     }
 
     private void OnModuleSelected(object sender, SelectionChangedEventArgs e)

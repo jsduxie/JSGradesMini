@@ -79,10 +79,17 @@ public class Qualification : INotifyPropertyChanged
     public void CalculateOverallGrade()
     {
         OverallGrade = 0.0f;
+        float countedWeighting = 0.0f;
         foreach (Level level in Levels)
         {
-            OverallGrade += level.Grade * level.Weighting;
+            if (level.IsComplete)
+            {
+                OverallGrade += level.Grade * level.Weighting;
+                countedWeighting += level.Weighting; 
+            }
         }
+        OverallGrade = OverallGrade / countedWeighting;
+        OverallGrade = (float)Math.Round(OverallGrade, 0f);
     }
 }
 
@@ -125,6 +132,7 @@ public class Level : INotifyPropertyChanged
         }
 
         Grade = Grade / totalCredits;
+        Grade = (float)Math.Round(Grade, 0f);
     }
 }
 
@@ -143,10 +151,17 @@ public class Modules
     public void CalculateModuleGrade()
     {
         ModuleGrade = 0.0f;
+        float totalWeighting = 0.0f;
         foreach (ModuleAssessment assessment in Assessments)
         {
-            ModuleGrade += assessment.Grade * assessment.Weighting;
+            if (assessment.IsComplete){
+                ModuleGrade += assessment.Grade * assessment.Weighting;
+                totalWeighting += assessment.Weighting;
+            }
+            
         }
+        ModuleGrade = ModuleGrade / totalWeighting;
+        ModuleGrade = (float)Math.Round(ModuleGrade, 0f);
     }
 }
 

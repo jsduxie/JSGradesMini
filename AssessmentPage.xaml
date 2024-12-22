@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:JSGradesMini"
              xmlns:behaviors="clr-namespace:JSGradesMini.Behaviors"
+             xmlns:converters="clr-namespace:JSGradesMini.Converters"
              x:Class="JSGradesMini.AssessmentPage"
              Title="Assessment Details">
     <ScrollView>
@@ -24,8 +25,7 @@
                 </Grid.ColumnDefinitions>
 
                 <Label Grid.Row="0" Grid.Column="0" Text="Assessment Type:" FontSize="20" FontFamily="RobotoBold" FontAttributes="Bold" VerticalOptions="Center" HorizontalTextAlignment="Center" Margin="0,5"/>
-                <Entry Grid.Row="0" Grid.Column="1" Text="{Binding AssessmentType}" FontSize="20" FontFamily="RobotoRegular" VerticalOptions="Center" Margin="0,10">
-                </Entry>
+                <Picker Grid.Row="0" Grid.Column="1" ItemsSource="{x:Static local:AssessmentTypeExtensions.Values}" SelectedItem="{Binding AssessmentType, Converter={StaticResource EnumToStringConverter}}" FontSize="20" FontFamily="RobotoRegular" VerticalOptions="Center" Margin="0,10"/>
 
                 <Label Grid.Row="1" Grid.Column="0" Text="Assessment Name:" FontSize="20" FontFamily="RobotoBold" FontAttributes="Bold"  VerticalOptions="Center" HorizontalTextAlignment="Center" Margin="0,5"/>
                 <Entry Grid.Row="1" Grid.Column="1" Text="{Binding AssessmentName}" FontSize="20" FontFamily="RobotoRegular" VerticalOptions="Center" Margin="0,10"/>

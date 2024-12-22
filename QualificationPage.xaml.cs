@@ -9,6 +9,7 @@ public partial class QualificationPage : ContentPage
 		InitializeComponent();
 		_qualification = qualification;
 		_saveQualifications = saveQualifications;
+		_qualification.CalculateOverallGrade();
 		BindingContext = _qualification;
 		levelCollectionView.ItemsSource = _qualification.Levels;
 	}
@@ -16,7 +17,7 @@ public partial class QualificationPage : ContentPage
     protected override void OnAppearing()
     {
         base.OnAppearing();
-
+		_qualification.CalculateOverallGrade();
 		levelCollectionView.ItemsSource = null;
 		levelCollectionView.ItemsSource = _qualification.Levels;
     }
@@ -24,6 +25,7 @@ public partial class QualificationPage : ContentPage
 	protected override void OnDisappearing()
     {
         base.OnDisappearing();
+		_qualification.CalculateOverallGrade();
 		_saveQualifications();
     }
 

@@ -9,14 +9,17 @@ public partial class ModulePage : ContentPage
 		InitializeComponent();
 		_module = module;
 		_saveQualifications = saveQualifications;
+		_module.CalculateModuleGrade();
 		BindingContext = _module;
 		assessmentCollectionView.ItemsSource = _module.Assessments;
+		
 	}
 
 	protected override void OnAppearing()
     {
         base.OnAppearing();
 
+		_module.CalculateModuleGrade();
 		assessmentCollectionView.ItemsSource = null;
 		assessmentCollectionView.ItemsSource = _module.Assessments;
     }
@@ -24,7 +27,9 @@ public partial class ModulePage : ContentPage
 	protected override void OnDisappearing()
     {
         base.OnDisappearing();
+		_module.CalculateModuleGrade();
 		_saveQualifications();
+
     }
 
     private void OnAssessmentSelected(object sender, SelectionChangedEventArgs e)
