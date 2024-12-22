@@ -1,4 +1,5 @@
 using System;
+using System.Collections.ObjectModel;
 
 namespace JSGradesMini;
 
@@ -9,9 +10,9 @@ public class Qualification
 {
     public QualificationType QualificationType { get; set; } = QualificationType.BachelorsDegree;
     public string Institution { get; set; } = string.Empty;
-    public float StartDate {get; set;} = DateTime.Now;
-    public float EndDate {get; set;} = DateTime.Now;
-    public float IsComplete {get; set;} = false;
+    public DateTime StartDate {get; set;} = DateTime.Now;
+    public DateTime EndDate {get; set;} = DateTime.Now;
+    public bool IsComplete {get; set;} = false;
     public float NumLevels {get; set;} = 0;
     public float CurrentLevel {get; set;} = 0;
     public float OverallGrade {get; set;} = 0.0f;
@@ -57,11 +58,11 @@ public class Qualification
 // Each academic year of degree
 public class Level
 {
-    public int Level {get; set;} = 0;
+    public int LevelInt {get; set;} = 0;
     public float Weighting {get; set;} = 0.0f;
-    public float StartDate {get; set;} = DateTime.Now;
-    public float EndDate {get; set;} = DateTime.Now;
-    public float IsComplete {get; set;} = false;
+    public DateTime StartDate {get; set;} = DateTime.Now;
+    public DateTime EndDate {get; set;} = DateTime.Now;
+    public bool IsComplete {get; set;} = false;
     public float Grade {get; set;} = 0.0f;
     public ObservableCollection<Modules> Modules {get; set;} = new ObservableCollection<Modules>();
 
@@ -84,17 +85,17 @@ public class Modules
 {
     public string ModuleCode { get; set; } = string.Empty;
     public string ModuleName { get; set; } = string.Empty;
-    public float Credits {get; set;} = string.Empty;
-    public float StartDate {get; set;} = DateTime.Now;
-    public float EndDate {get; set;} = DateTime.Now;
-    public float IsComplete {get; set;} = false;
+    public float Credits {get; set;} = 0.0f;
+    public DateTime StartDate {get; set;} = DateTime.Now;
+    public DateTime EndDate {get; set;} = DateTime.Now;
+    public bool IsComplete {get; set;} = false;
     public float ModuleGrade {get; set;} = 0.0f;
-    public ObservableCollection<Assessment> Assessments {get; set;} = new ObservableCollection<Assessment>();
+    public ObservableCollection<ModuleAssessment> Assessments {get; set;} = new ObservableCollection<ModuleAssessment>();
 
     public void CalculateModuleGrade()
     {
         ModuleGrade = 0.0f;
-        foreach (Assessment assessment in Assessments)
+        foreach (ModuleAssessment assessment in Assessments)
         {
             ModuleGrade += assessment.Grade * assessment.Weighting;
         }
@@ -102,20 +103,20 @@ public class Modules
 }
 
 // Individal Assessments per module
-public class Assessment
+public class ModuleAssessment
 {
     public AssessmentType AssessmentType {get; set;} = AssessmentType.Coursework;
     public string AssessmentName {get; set;} = string.Empty;
     public DateTime DueDate {get; set;} = DateTime.Now;
     public float Weighting {get; set;} = 0.0f;
     public float Grade {get; set;} = 0.0f;
-    public float IsComplete {get; set;} = false;
+    public bool IsComplete {get; set;} = false;
 }
 
 public enum AssessmentType
 {
-    Examination
-    Coursework
+    Examination,
+    Coursework,
     BenchTest
 }
 

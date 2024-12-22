@@ -40,6 +40,12 @@ build_metadata.AdditionalFiles.ManifestResourceName = JSGradesMini.QualDashboard
 build_metadata.AdditionalFiles.TargetPath = QualDashboardPage.xaml
 build_metadata.AdditionalFiles.RelativePath = QualDashboardPage.xaml
 
+[/Users/jamesduxbury/Documents/GitHub/personal-projects/js-grades-mini/JSGradesMini/QualificationPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = JSGradesMini.QualificationPage.xaml
+build_metadata.AdditionalFiles.TargetPath = QualificationPage.xaml
+build_metadata.AdditionalFiles.RelativePath = QualificationPage.xaml
+
 [/Users/jamesduxbury/Documents/GitHub/personal-projects/js-grades-mini/JSGradesMini/Resources/Styles/Colors.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = JSGradesMini.Resources.Styles.Colors.xaml

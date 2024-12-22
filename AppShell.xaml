@@ -11,5 +11,11 @@
         Title="Home"
         ContentTemplate="{DataTemplate local:QualDashboardPage}"
         Route="QualDashboardPage" />
+    
+    <ShellContent
+        Title="Home"
+        ContentTemplate="{DataTemplate local:QualificationPage}"
+        Route="QualificationPage" />
+    
 
 </Shell>
