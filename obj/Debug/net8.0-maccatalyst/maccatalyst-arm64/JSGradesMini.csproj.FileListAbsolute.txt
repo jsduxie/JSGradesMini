@@ -314,3 +314,4 @@
 /Users/jamesduxbury/Documents/GitHub/personal-projects/js-grades-mini/JSGradesMini/bin/Debug/net8.0-maccatalyst/maccatalyst-arm64/Microsoft.Maui.Controls.HotReload.Forms.dll
 /Users/jamesduxbury/Documents/GitHub/personal-projects/js-grades-mini/JSGradesMini/bin/Debug/net8.0-maccatalyst/maccatalyst-arm64/Microsoft.VisualStudio.DesignTools.MobileTapContracts.dll
 /Users/jamesduxbury/Documents/GitHub/personal-projects/js-grades-mini/JSGradesMini/bin/Debug/net8.0-maccatalyst/maccatalyst-arm64/Microsoft.VisualStudio.DesignTools.TapContract.dll
+/Users/jamesduxbury/Documents/GitHub/personal-projects/js-grades-mini/JSGradesMini/obj/Debug/net8.0-maccatalyst/maccatalyst-arm64/JSGradesMini.sourcelink.json
