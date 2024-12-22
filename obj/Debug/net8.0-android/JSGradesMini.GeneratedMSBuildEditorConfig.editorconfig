@@ -28,11 +28,29 @@ build_metadata.AdditionalFiles.ManifestResourceName = JSGradesMini.AppShell.xaml
 build_metadata.AdditionalFiles.TargetPath = AppShell.xaml
 build_metadata.AdditionalFiles.RelativePath = AppShell.xaml
 
+[/Users/jamesduxbury/Documents/GitHub/personal-projects/js-grades-mini/JSGradesMini/AssessmentPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = JSGradesMini.AssessmentPage.xaml
+build_metadata.AdditionalFiles.TargetPath = AssessmentPage.xaml
+build_metadata.AdditionalFiles.RelativePath = AssessmentPage.xaml
+
+[/Users/jamesduxbury/Documents/GitHub/personal-projects/js-grades-mini/JSGradesMini/LevelPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = JSGradesMini.LevelPage.xaml
+build_metadata.AdditionalFiles.TargetPath = LevelPage.xaml
+build_metadata.AdditionalFiles.RelativePath = LevelPage.xaml
+
 [/Users/jamesduxbury/Documents/GitHub/personal-projects/js-grades-mini/JSGradesMini/MainPage.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = JSGradesMini.MainPage.xaml
 build_metadata.AdditionalFiles.TargetPath = MainPage.xaml
 build_metadata.AdditionalFiles.RelativePath = MainPage.xaml
+
+[/Users/jamesduxbury/Documents/GitHub/personal-projects/js-grades-mini/JSGradesMini/ModulePage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = JSGradesMini.ModulePage.xaml
+build_metadata.AdditionalFiles.TargetPath = ModulePage.xaml
+build_metadata.AdditionalFiles.RelativePath = ModulePage.xaml
 
 [/Users/jamesduxbury/Documents/GitHub/personal-projects/js-grades-mini/JSGradesMini/QualDashboardPage.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml

@@ -87,7 +87,7 @@ public class Qualification : INotifyPropertyChanged
 }
 
 // Each academic year of degree
-public class Level
+public class Level : INotifyPropertyChanged
 {
     public int LevelInt {get; set;} = 0;
     public float Weighting {get; set;} = 0.0f;
@@ -96,6 +96,23 @@ public class Level
     public bool IsComplete {get; set;} = false;
     public float Grade {get; set;} = 0.0f;
     public ObservableCollection<Modules> Modules {get; set;} = new ObservableCollection<Modules>();
+
+    public event PropertyChangedEventHandler PropertyChanged;
+
+    protected bool SetProperty<T>(ref T backingStore, T value, [CallerMemberName] string propertyName = "")
+    {
+        if (EqualityComparer<T>.Default.Equals(backingStore, value))
+            return false;
+        
+        backingStore = value;
+        OnPropertyChanged(propertyName);
+        return true;
+    }
+
+    protected void OnPropertyChanged([CallerMemberName] string propertyName = "")
+    {
+        PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+    }
 
     public void CalculateLevelGrade()
     {
