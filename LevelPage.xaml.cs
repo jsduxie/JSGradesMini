@@ -3,10 +3,12 @@ namespace JSGradesMini;
 public partial class LevelPage : ContentPage
 {
 	private Level _level;
-	public LevelPage(Level level)
+	private Action _saveQualifications;
+	public LevelPage(Level level, Action saveQualifications)
 	{
 		InitializeComponent();
 		_level = level;
+		_saveQualifications = saveQualifications;
 		BindingContext = _level;
 		moduleCollectionView.ItemsSource = _level.Modules;
 	}
@@ -19,12 +21,18 @@ public partial class LevelPage : ContentPage
 		moduleCollectionView.ItemsSource = _level.Modules;
     }
 
+    protected override void OnDisappearing()
+    {
+        base.OnDisappearing();
+		_saveQualifications();
+    }
+
     private void OnModuleSelected(object sender, SelectionChangedEventArgs e)
 	{
 		if (e.CurrentSelection.FirstOrDefault() is Modules selectedModule)
         {
 			moduleCollectionView.SelectedItem = null;
-            Navigation.PushAsync(new ModulePage(selectedModule));
+            Navigation.PushAsync(new ModulePage(selectedModule, _saveQualifications));
         }
 	}
 
@@ -43,5 +51,7 @@ public partial class LevelPage : ContentPage
 
 		moduleCollectionView.ItemsSource = null;
 		moduleCollectionView.ItemsSource = _level.Modules;
+
+		_saveQualifications();
 	}
 }

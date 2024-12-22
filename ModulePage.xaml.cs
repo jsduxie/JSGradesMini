@@ -3,10 +3,12 @@ namespace JSGradesMini;
 public partial class ModulePage : ContentPage
 {
 	private Modules _module;
-	public ModulePage(Modules module)
+	private Action _saveQualifications;
+	public ModulePage(Modules module, Action saveQualifications)
 	{
 		InitializeComponent();
 		_module = module;
+		_saveQualifications = saveQualifications;
 		BindingContext = _module;
 		assessmentCollectionView.ItemsSource = _module.Assessments;
 	}
@@ -19,12 +21,18 @@ public partial class ModulePage : ContentPage
 		assessmentCollectionView.ItemsSource = _module.Assessments;
     }
 
+	protected override void OnDisappearing()
+    {
+        base.OnDisappearing();
+		_saveQualifications();
+    }
+
     private void OnAssessmentSelected(object sender, SelectionChangedEventArgs e)
 	{
 		if (e.CurrentSelection.FirstOrDefault() is ModuleAssessment selectedAssessment)
         {
 			assessmentCollectionView.SelectedItem = null;
-            Navigation.PushAsync(new AssessmentPage(selectedAssessment));
+            Navigation.PushAsync(new AssessmentPage(selectedAssessment, _saveQualifications));
         }
 	}
 
@@ -44,5 +52,7 @@ public partial class ModulePage : ContentPage
 
 		assessmentCollectionView.ItemsSource = null;
 		assessmentCollectionView.ItemsSource = _module.Assessments;
+
+		_saveQualifications();
 	}
 }

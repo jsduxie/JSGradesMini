@@ -1,12 +1,16 @@
-namespace JSGradesMini;
 using System.Collections.ObjectModel;
+using JSGradesMini.Services;
+
+namespace JSGradesMini;
 
 public partial class QualDashboardPage : ContentPage
 {
+	private ObservableCollection<Qualification> _qualifications;
 	public QualDashboardPage()
 	{
 		InitializeComponent();
-		qualCollectionView.ItemsSource = GetQualifications();
+		_qualifications = FileSystemService.LoadQualifications();
+		qualCollectionView.ItemsSource = _qualifications;
 	}
 
 	private void OnQualificationSelected(object sender, SelectionChangedEventArgs e)
@@ -14,10 +18,39 @@ public partial class QualDashboardPage : ContentPage
         if (e.CurrentSelection.FirstOrDefault() is Qualification selectedQualification)
         {
 			qualCollectionView.SelectedItem = null;
-            Navigation.PushAsync(new QualificationPage(selectedQualification));
+            Navigation.PushAsync(new QualificationPage(selectedQualification, SaveQualifications));
         }
     }
 
+	private void SaveQualifications()
+	{
+		FileSystemService.SaveQualifications(_qualifications);
+	}
+
+	private void OnAddQualificationClicked(object sender, EventArgs e)
+	{
+		var newQualification = new Qualification
+		{
+			QualificationType = QualificationType.BSc,
+			Institution = "New University",
+			CourseName = "New Qualification",
+			OverallGrade = 0f,
+			StartDate = DateTime.Now,
+			EndDate = DateTime.Now.AddMonths(12),
+			IsComplete = false,
+			NumLevels = 0,
+			CurrentLevel = 0
+		};
+		
+		_qualifications.Add(newQualification);
+
+		qualCollectionView.ItemsSource = null;
+		qualCollectionView.ItemsSource = _qualifications;
+
+		SaveQualifications();
+	}
+
+	/*
 	public List<Qualification> GetQualifications()
 	{
 		return new List<Qualification>
@@ -72,5 +105,5 @@ public partial class QualDashboardPage : ContentPage
 				}
 			}
 		};
-	}
+	}*/
 }
