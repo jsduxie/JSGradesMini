@@ -52,6 +52,7 @@
 /Users/jamesduxbury/Documents/GitHub/personal-projects/js-grades-mini/JSGradesMini/bin/Debug/net8.0-maccatalyst/maccatalyst-arm64/publish/../JSGradesMini.app/Contents/MonoBundle/Microsoft.Maui.Controls.HotReload.Forms.dll
 /Users/jamesduxbury/Documents/GitHub/personal-projects/js-grades-mini/JSGradesMini/bin/Debug/net8.0-maccatalyst/maccatalyst-arm64/publish/../JSGradesMini.app/Contents/MonoBundle/Microsoft.VisualStudio.DesignTools.MobileTapContracts.dll
 /Users/jamesduxbury/Documents/GitHub/personal-projects/js-grades-mini/JSGradesMini/bin/Debug/net8.0-maccatalyst/maccatalyst-arm64/publish/../JSGradesMini.app/Contents/MonoBundle/Microsoft.VisualStudio.DesignTools.TapContract.dll
+/Users/jamesduxbury/Documents/GitHub/personal-projects/js-grades-mini/JSGradesMini/bin/Debug/net8.0-maccatalyst/maccatalyst-arm64/publish/../JSGradesMini.app/Contents/MonoBundle/Microsoft.VisualStudio.DesignTools.XamlTapContract.dll
 /Users/jamesduxbury/Documents/GitHub/personal-projects/js-grades-mini/JSGradesMini/bin/Debug/net8.0-maccatalyst/maccatalyst-arm64/publish/../JSGradesMini.app/Contents/MonoBundle/JSGradesMini.dll
 /Users/jamesduxbury/Documents/GitHub/personal-projects/js-grades-mini/JSGradesMini/bin/Debug/net8.0-maccatalyst/maccatalyst-arm64/publish/../JSGradesMini.app/Contents/MonoBundle/Microsoft.CSharp.dll
 /Users/jamesduxbury/Documents/GitHub/personal-projects/js-grades-mini/JSGradesMini/bin/Debug/net8.0-maccatalyst/maccatalyst-arm64/publish/../JSGradesMini.app/Contents/MonoBundle/Microsoft.VisualBasic.Core.dll

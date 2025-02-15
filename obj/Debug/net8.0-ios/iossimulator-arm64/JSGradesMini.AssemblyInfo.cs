@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("JSGradesMini")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0+15f7837fcec1f00e63054f5d1cc1a31b03456295")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0+9dbb00f40bb66014a6f3193d6f41a6e9dce710b3")]
 [assembly: System.Reflection.AssemblyProductAttribute("JSGradesMini")]
 [assembly: System.Reflection.AssemblyTitleAttribute("JSGradesMini")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

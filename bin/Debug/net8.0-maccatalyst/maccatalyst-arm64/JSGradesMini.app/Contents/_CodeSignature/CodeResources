@@ -99,14 +99,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			O/lHpLRvvzCyltZQGYW2WNT2EcpJ27+O0xflurYilrE=
+			qbdjeF9Vk6vbczMXHXIgJRhl8QOObpmQGflK0XoixtY=
 			</data>
 		</dict>
 		<key>MonoBundle/JSGradesMini.pdb</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			iBn5H4KujGaLfIlD9lIX/yQP4uz4PGM9BzSESAwPY2o=
+			dJEINd7TU64PWp4/sa35xNrPszMB0oHmy4fnL3zDP+E=
 			</data>
 		</dict>
 		<key>MonoBundle/Microsoft.CSharp.dll</key>
@@ -204,7 +204,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			qpflHyBa+MRKZd8V0BQh5Fhv7ga/eHyftWhURAstH7k=
+			yFBgef+CfNo+QrhprkZqtyhMgFFpEoUvyZ6GOsKFvi0=
 			</data>
 		</dict>
 		<key>MonoBundle/Microsoft.Maui.Controls.Xaml.dll</key>
@@ -260,14 +260,21 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			WxGYaDvW4BvcJZKgH2Ti8i6yzRQpycpozHxR6gt9CCU=
+			5yxJxCRYnXeS0WgJk+olMXnYKkq04s1quTyN1QFoDlY=
 			</data>
 		</dict>
 		<key>MonoBundle/Microsoft.VisualStudio.DesignTools.TapContract.dll</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			PsCdURiM3cm7GxmjLqQUt/smxvdq8M3ImdiekPP7PMg=
+			+XcwbZEN9J/iXzCfASSIUHjBy38JA8OjXqyRfnrQjVA=
+			</data>
+		</dict>
+		<key>MonoBundle/Microsoft.VisualStudio.DesignTools.XamlTapContract.dll</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			8mLeuPbGPN9d1NbXORF7ujk0KRNNqeWVTe17i70jzpc=
 			</data>
 		</dict>
 		<key>MonoBundle/Microsoft.Win32.Primitives.dll</key>

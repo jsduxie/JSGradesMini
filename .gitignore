@@ -384,3 +384,5 @@ temp
 .packages
 /src/Templates/.tempTemplateOutput
 *.cache
+/bin/Debug
+/bin
